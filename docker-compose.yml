@@ -1,0 +1,23 @@
+# The docker command below came from this playwright documentation: # docker run -it --rm --ipc=host mcr.microsoft.com/playwright:v1.46.0-jammy /bin/bash.
+# docker run -it --rm --ipc=host mcr.microsoft.com/playwright:v1.46.0-jammy /bin/bash
+
+# Above docker command was converted to this docker-compose file to ensure the same expected results with CI, especially with images.
+
+# Common commands to run with
+# docker exec pw-cont xvfb-run npx playwright test
+# docker exec xvfb-run npx playwright test --update-snapshots
+
+services:
+  playwright-container-service:
+    container_name: pw-cont
+    image: mcr.microsoft.com/playwright:v1.46.0-jammy   # must match with Playwright version, based from https://playwright.dev/docs/docker#image-tags
+    stdin_open: true                                    # the i in -it
+    tty: true                                           # the t in -it
+    ipc: host                                           # increased container performance
+    command: /bin/bash                                  # the service runs /bin/bash in the container
+    
+                                                        # additional settings
+    network_mode: host                                  # slightly lower latency and slightly better network performance
+    volumes:                                            # ensures that updates in local/container are in sync
+      - $PWD:/playwright/                               # maps the current working directory on the host ($PWD) to the /playwright/ directory inside the container
+    working_dir: /playwright                            # sets the container's working directory
