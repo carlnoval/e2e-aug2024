@@ -28,7 +28,9 @@ export default defineConfig({
     baseURL: 'https://www.saucedemo.com/',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    /* Since `retain-on-failure` may not be the most efficient setting especially when having many test cases, see Todo below. */
+    /* Todo: Play with `trace: 'on-first-retry',` later, requires `retries` to be properly updated for local testing. */
+    trace: 'retain-on-failure',
 
     headless: false,
   },
