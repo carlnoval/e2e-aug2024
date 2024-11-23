@@ -36,7 +36,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     /* Since `retain-on-failure` may not be the most efficient setting especially when having many test cases, see Todo below. */
     /* Todo: Play with `trace: 'on-first-retry',` later, requires `retries` to be properly updated for local testing. */
-    trace: 'retain-on-failure',
+    trace: 'on',
 
     headless: false,
   },
