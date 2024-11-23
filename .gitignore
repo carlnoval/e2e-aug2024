@@ -1,6 +1,15 @@
-# default ignores
+# sensitive information
+.env
+
+# playwright default
 node_modules/
 /test-results/
 /playwright-report/
-/blob-report/
 /playwright/.cache/
+
+# macOS ignores
+.DS_Store
+
+# Allure Reporting
+/allure-report
+/allure-test-results
