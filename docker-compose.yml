@@ -10,7 +10,7 @@
 services:
   playwright-container-service:
     container_name: pw-cont
-    image: mcr.microsoft.com/playwright:v1.46.0-jammy   # must match with Playwright version, based from https://playwright.dev/docs/docker#image-tags
+    image: mcr.microsoft.com/playwright:v1.49.0-noble   # must match with Playwright version, based from https://playwright.dev/docs/docker#image-tags
     stdin_open: true                                    # the i in -it
     tty: true                                           # the t in -it
     ipc: host                                           # increased container performance
@@ -21,3 +21,4 @@ services:
     volumes:                                            # ensures that updates in local/container are in sync
       - $PWD:/playwright/                               # maps the current working directory on the host ($PWD) to the /playwright/ directory inside the container
     working_dir: /playwright                            # sets the container's working directory
+    
