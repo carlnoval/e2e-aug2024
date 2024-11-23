@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["./node_modules/@types"] // Only include default type definitions
+  },
+  "include": ["./e2e-tests/**/*.ts", "./env.d.ts"]
+}
