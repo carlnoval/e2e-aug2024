@@ -1,4 +1,10 @@
+import { config } from '@dotenvx/dotenvx';
 import { defineConfig, devices } from '@playwright/test';
+
+// Read environment variables
+config();
+// Test environment variables
+// console.log(`@@@@@ - Hello ${process.env.HELLO}`);
 
 /**
  * Read environment variables from file.
