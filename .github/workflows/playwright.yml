@@ -13,7 +13,7 @@ jobs:
       image: mcr.microsoft.com/playwright:v1.49.0-noble               # Use Playwright Docker image
       options: --ipc=host                                             # Enables shared memory (shm) access to prevent browser crashes and improve performance
       env:
-        DOTENV_PRIVATE_KEY_CI: ${{ secrets.DOTENV_PRIVATE_KEY_CI }}
+        DOTENV_PRIVATE_KEY_CI: ${{ secrets.DOTENV_PRIVATE_KEY_CI }}   # Ensure that .env.ci secrets can be decrypted
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
