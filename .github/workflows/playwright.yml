@@ -17,8 +17,16 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
+    # - name: Configure Sensitive Variables
+    #   run: curl -sfS https://dotenvx.sh/install.sh | sh
+      env:
+        DOTENV_PRIVATE_KEY_CI: ${{ secrets.DOTENV_PRIVATE_KEY_CI }}
     - name: Install dependencies
       run: npm ci
+    - name: Environment variables setup                   # Read environment variables and ensure that they can be decrypted
+      run: dotenvx run -- node build.js
+      env:
+        DOTENV_PRIVATE_KEY_CI: ${{ secrets.DOTENV_PRIVATE_KEY_CI }}
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
