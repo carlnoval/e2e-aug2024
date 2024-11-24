@@ -13,3 +13,6 @@ node_modules/
 # Allure Reporting
 /allure-report
 /allure-test-results
+
+# Others
+project_notes.txt
