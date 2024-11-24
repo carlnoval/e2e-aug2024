@@ -1,0 +1,6 @@
+Next Tasks
+- Go back to researching about how to login to multiple different environments
+- Change POM to be with REMETIS Login
+
+Completed Tasks
+✅ Encryption/Decryption with dotenvx Worked!
